@@ -1,0 +1,4 @@
+riki34_todolist:
+    resource: "@riki34TodolistBundle/Controller/"
+    prefix:   /
+    type: annotation

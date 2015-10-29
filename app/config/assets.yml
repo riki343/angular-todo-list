@@ -1,0 +1,23 @@
+assetic:
+    assets:
+        css:
+            inputs:
+                - 'vendor/Bootstrap/css/bootstrap.min.css'
+                - 'vendor/font-awesome/css/font-awesome.min.css'
+                - 'stylesheets/todo-list.css'
+        vendor:
+            inputs:
+                - 'vendor/jQuery/jquery-2.1.4.min.js'
+                - 'vendor/Bootstrap/js/bootstrap.min.js'
+                - 'vendor/Angular/angular.min.js'
+                - 'vendor/ui-router/angular-ui-router.min.js'
+                - 'vendor/Angular/angular-animate.min.js'
+        module:
+            inputs:
+                - 'javascripts/todo-list.js'
+        controllers:
+            inputs:
+                - 'javascripts/Controller/*'
+        directives:
+            inputs:
+                - 'javascripts/Directive/*'

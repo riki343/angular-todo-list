@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-heading">
+                <h4 align="center" class="page-header">Todo list</h4>
+            </div>
+            
+            <div style="max-height: 300px; overflow-y: scroll; overflow-x: hidden;" ng-show="todos.length > 0" class="show-hide-animation">
+                <a ng-repeat="todo in todos track by $index"
+                   style="margin: 1px 0; -webkit-user-select: none;"
+                   class="list-group-item row animate-repeat">
+                    <div class="col-xs-2">
+                        <label for="{{ 'todo' + $index }}" style="cursor: pointer;" ng-click="todo.checked = !todo.checked;">
+                            <i class="fa fa-fw" ng-class="{ 'fa-check-circle-o': todo.checked === true, 'fa-circle-o': todo.checked === false }"></i>
+                        </label>
+                        <input type="checkbox" id="{{ 'todo' + $index }}" style="position: absolute; left: -999999999px;">
+                    </div>
+                    <div class="col-xs-5" ng-bind="todo.title" ng-style="{ 'text-decoration': (todo.checked === true) ? 'line-through' : 'none' }"></div>
+                    <div class="col-xs-3">{{ todo.date | date }}</div>
+                    <div class="col-xs-2">
+                        <i class="fa fa-fw fa-edit text-info" ng-click="showModal(todo);"></i>
+                        <i class="fa fa-fw fa-trash text-danger" ng-click="deleteTodo($index);"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="list-group-item show-hide-animation" ng-hide="todos.length > 0">
+                <p class="text-info" align="center" style="font-size: 18px;">List empty</p>
+            </div>
+            
+            <div class="list-group-item">
+                <form class="input-group input-group-sm" ng-submit="addTodo(todoModel);">
+                    <label for="add-todo" class="input-group-addon">Title</label>
+                    <input type="text" id="add-todo" ng-model="todoModel" class="form-control">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal fade" id="edit-modal">
+            <div class="modal-dialog">
+                <form class="modal-content" ng-submit="editTodo(editModel);">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group input-group-sm">
+                            <label for="edit-todo-title" class="input-group-addon">Title</label>
+                            <input id="edit-todo-title" class="form-control" type="text" ng-model="editModel" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

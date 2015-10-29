@@ -1,0 +1,8 @@
+.show-hide-animation {
+    transition: 1s linear opacity;
+    opacity: 1;
+}
+
+.show-hide-animation.ng-hide {
+    opacity: 0;
+}

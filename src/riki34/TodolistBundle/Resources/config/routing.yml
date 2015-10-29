@@ -1,0 +1,3 @@
+riki34_todolist_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: riki34TodolistBundle:Default:index }

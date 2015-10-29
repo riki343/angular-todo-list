@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html ng-app="todo-list">
+
+<head>
+    {% stylesheets
+        '@css'
+        output="/css/all.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+    {% javascripts
+        '@vendor'
+        '@module'
+        '@controllers'
+        '@directives'
+        output="/js/all.js"
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
